@@ -13,8 +13,16 @@ article{
     margin: 10px;
     padding: 10px;
     border-radius: 15px;
- 
+    box-shadow: 0 1px 7px #0003;;
+    cursor: pointer;
+    transition: transform 200ms ease;
 }
+
+article:hover{
+    transform: scale(1.05);
+    transition: transform 200ms ease;
+}
+
 .cards-container{
 position: absolute;
 width: 100%;
@@ -38,6 +46,7 @@ header {
     border-radius: 4px 4px 0px 0px;
     height: 180px;
 }
+
 
 section{
     background-color: white;
