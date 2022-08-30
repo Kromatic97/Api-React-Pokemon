@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import StatPoke from './StatPoke'
+import { useNavigate } from 'react-router-dom'
 
 const PokemonCard = ({url}) => {
     const [pokemon, setPokemon] = useState()
+
+    const navigate = useNavigate()
 
     useEffect(() => {
     
@@ -13,13 +16,11 @@ const PokemonCard = ({url}) => {
     }, [])
     console.log(pokemon);
 
-
-
+const handleClick = () => navigate(`/pokedex/${pokemon.name}`)
 
   return (
-    
 
-    <article>
+    <article onClick={handleClick} className='card'>
         <header>
             <img src={pokemon?.sprites.other["official-artwork"]["front_default"]} alt="" />
         </header>

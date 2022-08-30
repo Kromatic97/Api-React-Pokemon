@@ -8,7 +8,7 @@
     text-align: center;
 }
 article{
-    background-color: #2B4865;
+    background: linear-gradient(178.92deg, #7EC6C5 0.92%, #ABDAC6 47.96%, #CAE099 99.08%);
     width: 350px;
     margin: 10px;
     padding: 10px;
@@ -29,25 +29,26 @@ flex-wrap: wrap;
 img{
     width: 80%;
     position: relative;
-    top: 50px;
-    left: 75px;
+    top: 20px;
+    left: 40px;
  
 }
 header {
-    background-color: #AEDBCE;
-    border-radius: 5px;
+    background: linear-gradient(178.92deg, #7EC6C5 0.92%, #ABDAC6 47.96%, #CAE099 99.08%);
+    border-radius: 4px 4px 0px 0px;
+    height: 180px;
 }
 
 section{
-    background-color: #0096FF;
+    background-color: white;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 1em;
-    padding-top: 25px;
+    align-items:center;
+    justify-content: end;
     margin-bottom: 0.5em;
     border-radius: 5px;
+    padding-bottom: 0.5em;
+    height: 180px;
 
 }
 
@@ -55,7 +56,7 @@ footer{
     padding: 0.5em;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    background-color: #94B49F;
+    background-color:white;
     border-radius: 5px;
 }
 .stat__info-details{

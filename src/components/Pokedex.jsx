@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import PokemonCard from './Pokedex/PokemonCard'
 
 const Pokedex = () => {
@@ -12,10 +13,12 @@ const Pokedex = () => {
    .then(res => setPokemons(res.data))
    .catch(err => console.log(err))
   }, [])
+
+  const nameTrainer = useSelector(state => state.nameTrainer)
   
   return (
     <div>
-      <h1 className='title'>Pokedex Academlo</h1>
+      <h1 className='title'>Welcome {nameTrainer}, Catch them all</h1>
       <div className='cards-container'>
           {
             pokemons?.results.map( pokemon => (
