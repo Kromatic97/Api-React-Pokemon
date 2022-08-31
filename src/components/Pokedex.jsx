@@ -8,30 +8,43 @@ import SelectType from './Pokedex/SelectType'
 const Pokedex = () => {
 
   const [pokemons, setPokemons] = useState()
-  const [pokeSearch, setpokeSearch] = useState()
- const [optionType, setOptionType] = useState()
+  const [pokeSearch, setPokeSearch] = useState()
+ const [optionType, setOptionType] = useState('All')
 
- 
+
+
+
+
   useEffect(() => {
-    let URL
-    if(pokeSearch){
+    if(optionType !== 'All'){
+        //Aqui se realiza la logica cuando el usuario quiere filtrar por tipo//
+        const URL = `https://pokeapi.co/api/v2/type/${optionType}/`
+        axios.get(URL)
+        .then(res => {
+        const arr = res.data.pokemon.map(e => e.pokemon)
+        setPokemons({results:arr})
+      })
+      .catch(err => console.log(err))
+      
+      
+    } else if(pokeSearch){
       const url =`https://pokeapi.co/api/v2/pokemon/${pokeSearch}`
       const obj = {
-        results:[
-          {
-          url
-          }
-      ]
+        results:[{url}]
       }
       setPokemons(obj)
 
     } else {
+      //Aqui se hace la logica cuando el usuario quieretodos los pokemons//
       const URL = 'https://pokeapi.co/api/v2/pokemon'
       axios.get(URL)
       .then(res => setPokemons(res.data))
       .catch(err => console.log(err))
     }
- }, [pokeSearch])
+ }, [pokeSearch, optionType])
+
+
+
 
 
   const nameTrainer = useSelector(state => state.nameTrainer)
@@ -39,8 +52,10 @@ const Pokedex = () => {
   return (
     <div>
       <h1 className='title'>Welcome {nameTrainer}, Catch them all</h1>
-      <SearchInput setpokeSearch={setpokeSearch}/>
-      <SelectType setOptionType={setOptionType}/>
+      <SearchInput setPokeSearch={setPokeSearch} setOptionType={setOptionType}/>
+      <SelectType optionType={optionType} 
+                  setOptionType={setOptionType} 
+                  setPokeSearch={setPokeSearch}/>
 
       <div className='cards-container'>
           {
