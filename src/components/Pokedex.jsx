@@ -3,12 +3,15 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import PokemonCard from './Pokedex/PokemonCard'
 import SearchInput from './Pokedex/SearchInput'
+import SelectType from './Pokedex/SelectType'
 
 const Pokedex = () => {
 
   const [pokemons, setPokemons] = useState()
   const [pokeSearch, setpokeSearch] = useState()
+ const [optionType, setOptionType] = useState()
 
+ 
   useEffect(() => {
     let URL
     if(pokeSearch){
@@ -30,12 +33,14 @@ const Pokedex = () => {
     }
  }, [pokeSearch])
 
+
   const nameTrainer = useSelector(state => state.nameTrainer)
   
   return (
     <div>
       <h1 className='title'>Welcome {nameTrainer}, Catch them all</h1>
       <SearchInput setpokeSearch={setpokeSearch}/>
+      <SelectType setOptionType={setOptionType}/>
 
       <div className='cards-container'>
           {
