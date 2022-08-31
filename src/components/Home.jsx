@@ -22,13 +22,20 @@ const Home = () => {
     }
 
   return (
-    <div>
-        <h1>Hi Trainer!</h1>
-        <p>To Start give me your trainer name</p>
-        <form onSubmit={handelSubmit}>
-            <input id='name' type="text" />
-            <button>Catch them all</button>
+    <div className='home'>
+      <div className='home_title1'></div>
+      <div className='home_title2'></div>
+      <img className='home__img' src="./images/pokedex.png" alt="" />
+   
+    <section className='home__intoduction'>
+        <h1 className='home__title-text'>Hi Trainer!</h1>
+        <p className='home__description'>To Start give me your trainer name</p>
+        
+        <form className='home__form' onSubmit={handelSubmit}>
+            <input className='home__input' placeholder='Enter your name' id='name' type="text" />
+            <button className='home__btn'>Catch them all</button>
         </form>
+    </section>
     </div>
   )
 }

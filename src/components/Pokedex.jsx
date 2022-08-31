@@ -51,11 +51,16 @@ const Pokedex = () => {
   
   return (
     <div>
+      <div className='home_title1'></div>
+      <div className='home_title2'></div>
+      <img className='home__img' src="./images/pokedex.png" alt="" />
       <h1 className='title'>Welcome {nameTrainer}, Catch them all</h1>
+     <div className='search__principal'>
       <SearchInput setPokeSearch={setPokeSearch} setOptionType={setOptionType}/>
-      <SelectType optionType={optionType} 
+      <SelectType className='selectType' optionType={optionType} 
                   setOptionType={setOptionType} 
                   setPokeSearch={setPokeSearch}/>
+     </div>
 
       <div className='cards-container'>
           {
